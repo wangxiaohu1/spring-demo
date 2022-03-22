@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/util    http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+	<context:component-scan base-package="bean.property.test3" />
+
+	<context:property-placeholder location="classpath:bean/property/test3/prop1.properties" ignore-resource-not-found="true"/>
+	<bean class="bean.property.test3.Test">
+		<property name="locations">
+			<list>
+				<value>bean/property/test3/prop2.properties</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="tagVo" class="bean.property.test3.TagVo">
+		<property name="name" value="${tag.name:默认值}" />
+		<property name="age" value="${tag.age:-1}" />
+		<property name="pwd" value="${tag.pwd:默认值}"/>
+	</bean>
+
+</beans>
