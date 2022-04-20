@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/util    http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+	<context:component-scan base-package="bean.property.test4_1" />
+	<bean name="myWare" class="bean.property.test4_1.MyWare" />
+	<bean id="xxx" class="bean.property.test4_1.CustomPropertyPlaceholderConfigurer1">
+		<property name="myWare" ref="myWare" />
+		<property name="locations">
+			<list>
+				<value>bean/property/test4_1/prop.properties</value>
+				<value>classpath:properties/damai-daily.properties</value>
+			</list>
+		</property>
+	</bean>
+	<!--<import resource="classpath:damai-biz-if-conf.xml" />-->
+	<import resource="classpath:bean/property/test4_1/spring1-user.xml" />
+	
+</beans>

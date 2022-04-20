@@ -13,6 +13,9 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+
+import java.util.Arrays;
+
 import static webmvc.Print.*;
 
 /**
@@ -44,7 +47,18 @@ public class XController02_ValidTest {
     @Test
     public void testList02() throws Exception{
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders.post("/valid/add");
+        request.param("name", "javajavajava");
+        MvcResult mvcResult = mockMvc.perform(request).andReturn();
+        String content = mvcResult.getResponse().getContentAsString();
+        println2(content);
+    }
+
+    @Test
+    public void testList03() throws Exception{
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders.post("/valid/add");
         request.param("name", "java");
+        request.param("age", "20");
+        request.param("likeList", "java,go,php");
         MvcResult mvcResult = mockMvc.perform(request).andReturn();
         String content = mvcResult.getResponse().getContentAsString();
         println2(content);

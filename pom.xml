@@ -10,6 +10,7 @@
 	<modules>
 		<module>webmvc</module>
 		<module>bean</module>
+		<module>context</module>
 	</modules>
 
 	<properties>
@@ -187,12 +188,26 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<dependency>
+			<groupId>cn.com.ykse.damai</groupId>
+			<artifactId>ykse-damai-gateway-client</artifactId>
+			<version>0.1-SNAPSHOT</version>
+		</dependency>
 
 	</dependencies>
 
 
 	<build>
 		<finalName>spring-demo</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+		</resources>
 		<pluginManagement>
 			<plugins>
 				<plugin>
