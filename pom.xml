@@ -11,7 +11,9 @@
 		<module>webmvc</module>
 		<module>bean</module>
 		<module>context</module>
-	</modules>
+        <module>example</module>
+        <module>util</module>
+    </modules>
 
 	<properties>
 
@@ -192,6 +194,11 @@
 			<groupId>cn.com.ykse.damai</groupId>
 			<artifactId>ykse-damai-gateway-client</artifactId>
 			<version>0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>springdemo</groupId>
+			<artifactId>util</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 
 	</dependencies>
